@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ config('app.locale') }}">
+<html>
 {{-- <FilesMatch ".(eot|ttf|otf|woff)"></FilesMatch> --}}
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{asset('images/favicons.ico')}}" type="image/ico" />
-    <title>systems</title>
+    <title>System</title>
     <!-- Bootstrap -->
     <link href="{{asset('vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Font Awesome -->
@@ -29,6 +29,12 @@
     <link href="{{asset('build/css/custom.min.css')}}" rel="stylesheet">
     {{--CDN Editor--}}
     <script src="{{url('http://cdn.ckeditor.com/4.6.1/standard/ckeditor.js')}}"></script>
-    {{--<link rel="stylesheet" href="{{ asset('vendors/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">--}}
-    {{--<link rel="stylesheet" href="{{ asset('vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}">--}}
+
+    <script src="{{url('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js')}}"></script>
+    {{--<script src="{{asset('vendors/Chart.js/dist/Chart.min.js')}}"></script>--}}
+    {{--<script src="{{asset('vendors/Chart.js/dist/Chart.min.js')}}"></script>--}}
+{{--    <script src="{{url('https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js')}}" charset="utf-8"></script>--}}
+
+
 </head>
+

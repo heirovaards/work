@@ -1,5 +1,7 @@
 @include('layouts._head')
 
+
+
 <body class="nav-md">
 <div class="container body">
     <div class="main_container">
@@ -61,19 +63,6 @@
                                         <button type="submit" class="btn btn-default" type="button">Go!</button>
                                     </span>
                                 </div>
-                        </div>
-                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                                <div class="input-group">
-                                    <select type="text" class="form-control" placeholder="Search for..." name="limit">
-                                        <option style="color:gray" value="null"> Limit . . .</option>
-                                        <option value="3">3</option>
-                                        <option value="5">5</option>
-                                        <option value="10">10</option>
-                                    </select>
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button" disabled>&</button>
-                                    </span>
-                                </div>
                             </form>
                         </div>
                     </div>
@@ -87,7 +76,7 @@
                         @include('components._warnings')
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Sales Data <small>Bulan : {{$now}} </small></h2>
+                                <h2>Sales Data <small> </small></h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -97,24 +86,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
-                                <table class="table table-striped table-bordered">
-                                    <thead>
-                                    <tr>
-                                        <th>Product ID</th>
-                                        <th>Product Name</th>
-                                        <th>Total Sales</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($data as $data)
-                                            <tr>
-                                                <td>{{$data->product_id}}</td>
-                                                <td>{{$data->product_name}}</td>
-                                                <td>{{$data->total_sales}}</td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                {!! $chart->render() !!}
                             </div>
                         </div>
                     </div>
@@ -135,4 +107,7 @@
 </div>
 
 @include('layouts._script')
-@include('layouts._datatable')
+<script>
+    window.{{ $chart->id }}
+</script>
+

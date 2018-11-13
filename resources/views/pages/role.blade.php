@@ -85,16 +85,14 @@
                                                 <td>{{$role->name}}</td>
                                                 <td>{{$role->description}}</td>
                                                 <td>
-                                                    <form method="post" action="{{route('user.edit',$role)}}">
-                                                        {{csrf_field()}}
 
-                                                    </form>
-                                                    <form method="post" action="" >
+                                                    <form method="post" action="{{route('user.edit',$role)}}"  style ='float: left; padding: 0px;'>
                                                         {{csrf_field()}}
-                                                        <button  type="btn" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
-                                                        <a href="{{route('role.edit',$role)}}">
-                                                            <button  type="btn" class="btn btn-xs btn-success" >Edit</button>
-                                                        </a>
+                                                        <button  type="btn" class="btn btn-xs btn-success" >Edit</button>
+                                                    </form>
+                                                    <form method="post" action="{{route('role.delete',$role)}}" onsubmit="return confirm('Are you sure?')">
+                                                        {{csrf_field()}}
+                                                        <button  type="btn" class="btn btn-xs btn-danger" >Delete</button>
                                                     </form>
                                                 </td>
                                             </tr>

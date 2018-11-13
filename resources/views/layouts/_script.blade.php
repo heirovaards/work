@@ -7,7 +7,6 @@
 <!-- NProgress -->
 <script src="{{asset('vendors/nprogress/nprogress.js')}}"></script>
 <!-- Chart.js -->
-<script src="{{asset('vendors/Chart.js/dist/Chart.min.js')}}"></script>
 <!-- gauge.js -->
 <script src="{{asset('vendors/gauge.js/dist/gauge.min.js')}}"></script>
 <!-- bootstrap-progressbar -->
@@ -37,5 +36,4 @@
 <script src="{{asset('vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
 <!-- Custom Theme Scripts -->
 <script src="{{asset('build/js/custom.min.js')}}"></script>
-<script src="{{url('https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')}}}"></script>
 </html>

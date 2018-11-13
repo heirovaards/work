@@ -15,6 +15,12 @@
                     @endrole
                 </ul>
             </li>
+            <li><a><i class="fa fa-area-chart"></i> Penjualan <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="{{route('transaction.chart')}}">Sales Chart</a></li>
+                    <li><a href="{{route('transaction.table')}}">Favorite Items</a></li>
+                </ul>
+            </li>
             <li><a><i class="fa fa-gear"></i> Roles <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="{{route('role.table')}}">All Roles</a></li>

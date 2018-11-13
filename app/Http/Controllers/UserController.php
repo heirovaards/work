@@ -48,8 +48,6 @@ class UserController extends Controller
         $id = $user->id;
         $edituser = User::where('id','=', $id)->get();
         $roles = Role::get();
-//        dd($edituser);
-
         return view('pages.edit_user', compact('edituser', 'roles'));
     }
 

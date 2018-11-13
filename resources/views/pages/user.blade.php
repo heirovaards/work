@@ -90,11 +90,11 @@
                                                     <td>{{$roles->name}}</td>
                                                 @endforeach
                                                 <td>
-                                                    <form method="post" action="{{route('user.view',$userdata)}}">
+                                                    <form method="post" action="{{route('user.view',$userdata)}}"  style ='float: left; padding: 0px;'>
                                                         {{csrf_field()}}
                                                         <button  type="btn" class="btn btn-success btn-xs" >View</button>
                                                     </form>
-                                                    <form method="post" action="{{route('user.edit',$userdata)}}">
+                                                    <form method="post" action="{{route('user.edit',$userdata)}}"  style ='float: left; padding: 0px;'>
                                                         {{csrf_field()}}
                                                         <button  type="btn" class="btn btn-xs btn-success" >Edit</button>
                                                     </form>

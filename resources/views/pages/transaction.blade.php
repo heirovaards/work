@@ -37,16 +37,46 @@
                         <h3>Users </h3>
                     </div>
                     {{--search bar--}}
-                    {{--<div class="title_right">--}}
-                        {{--<div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">--}}
-                            {{--<div class="input-group">--}}
-                                {{--<input type="text" class="form-control" placeholder="Search for...">--}}
-                                {{--<span class="input-group-btn">--}}
-                              {{--<button class="btn btn-default" type="button">Go!</button>--}}
-                            {{--</span>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
+                    <div class="title_right">
+                        <form method="post" action="{{route('transaction.search')}}">
+                            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                                {{csrf_field()}}
+                                <div class="input-group">
+                                    <select type="text" class="form-control" placeholder="Search for..." name="month">
+                                        <option style="color:gray" value="null"> Month . . .</option>
+                                        <option value="1">Januari</option>
+                                        <option value="2">Pebruari</option>
+                                        <option value="3">Maret</option>
+                                        <option value="4">April</option>
+                                        <option value="5">Mei</option>
+                                        <option value="6">Juni</option>
+                                        <option value="7">Juli</option>
+                                        <option value="8">Agustus</option>
+                                        <option value="9">September</option>
+                                        <option value="10">Oktober</option>
+                                        <option value="11">November</option>
+                                        <option value="12">Desember</option>
+                                    </select>
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-default" type="button">Go!</button>
+                                    </span>
+                                </div>
+                            </div>
+                                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                                    <div class="input-group">
+                                        <select type="text" class="form-control" placeholder="Search for..." name="limit">
+                                            <option style="color:gray" value="null"> Limit . . .</option>
+                                            <option value="3">3</option>
+                                            <option value="5">5</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" disabled>&</button>
+                                        </span>
+                                    </div>
+                                </div>
+                        </form>
+                    </div>
                     {{--search bar--}}
                 </div>
 
@@ -57,12 +87,9 @@
                         @include('components._warnings')
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Default Example <small>Users</small></h2>
+                                <h2>Sales Data <small>Bulan : {{$now}} </small></h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                                     </li>
                                     <li><a class="close-link"><i class="fa fa-close"></i></a>
                                     </li>
@@ -70,39 +97,20 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
-                                <table id="datatable" class="table table-striped table-bordered">
+                                <table class="table table-striped table-bordered">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Roles</th>
-                                        <th>Action</th>
+                                        <th>Product ID</th>
+                                        <th>Product Name</th>
+                                        <th>Total Sales</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($user as $userdata)
+                                        @foreach($data as $data)
                                             <tr>
-                                                <td>{{$userdata->id}}</td>
-                                                <td>{{$userdata->name}}</td>
-                                                <td>{{$userdata->email}}</td>
-                                                @foreach($userdata->roles as $roles)
-                                                    <td>{{$roles->name}}</td>
-                                                @endforeach
-                                                <td>
-                                                    <form method="post" action="{{route('user.view',$userdata)}}"  style ='float: left; padding: 0px;'>
-                                                        {{csrf_field()}}
-                                                        <button  type="btn" class="btn btn-success btn-xs" >View</button>
-                                                    </form>
-                                                    <form method="post" action="{{route('user.edit',$userdata)}}"  style ='float: left; padding: 0px;'>
-                                                        {{csrf_field()}}
-                                                        <button  type="btn" class="btn btn-xs btn-success" >Edit</button>
-                                                    </form>
-                                                    <form method="post" action="{{route('user.delete',$userdata)}}" onsubmit="return confirm('Are you sure?')">
-                                                        {{csrf_field()}}
-                                                        <button  type="btn" class="btn btn-xs btn-danger" >Delete</button>
-                                                    </form>
-                                                </td>
+                                                <td>{{$data->product_id}}</td>
+                                                <td>{{$data->product_name}}</td>
+                                                <td>{{$data->total_sales}}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -128,11 +136,3 @@
 
 @include('layouts._script')
 @include('layouts._datatable')
-
-<script>
-    $('#datatable').dataTable( {
-        "columnDefs": [
-            { "orderable": false, "targets": 4 }
-        ]
-    } );
-</script>
