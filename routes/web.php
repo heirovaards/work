@@ -59,6 +59,7 @@ Route::prefix('role')->middleware('auth')->group(function(){
 Route::get('/transaction', 'TransactionController@showTransaction')->name('transaction.table');
 Route::post('/transaction/search', 'TransactionController@searchTransaaction')->name('transaction.search');
 Route::get('/transaction/chart', 'TransactionController@chartTransaction')->name('transaction.chart');
+Route::get('/transaction/regression', 'TransactionController@regresion')->name('transaction.regresion');
 
 
 //route logout

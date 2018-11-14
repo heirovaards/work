@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Transaction;
 use Illuminate\Support\Facades\DB;
 use ConsoleTVs\Charts\Facades\Charts;
+use Phpml\Regression\LeastSquares;
 
 
 
@@ -67,6 +68,32 @@ class TransactionController extends Controller
             ->labels($data->pluck('month'))
             ->values($data->pluck('total_sales'));
         return view('pages.chart_transaction', ['chart'=>$chart]);
+
+    }
+
+    public function regresion()
+    {
+        $data = DB::table('sys_transaction')
+            ->select(DB::raw('SUM(product_sales_total) as total_sales'))
+            ->whereYear('invoice_date','=', 2017)
+            ->groupBy( DB::raw('MONTH(invoice_date)'))
+            ->orderBy('invoice_date', 'asc')
+            ->get()
+            ->pluck('total_sales');
+
+        foreach ($data as $object)
+        {
+            $new = (int)$object;
+            $arrays[] = (array)$new;
+        }
+
+        $samples = $arrays;
+        $targets = [4, 5, 6, 7, 8, 9];
+
+        $regression = new LeastSquares();
+        $regression->train($samples, $targets);
+
+        dd($regression);
 
     }
 }

@@ -16,7 +16,7 @@
                 <!-- menu profile quick info -->
                 <div class="profile clearfix">
                     <div class="profile_pic">
-                        <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                        <img src="{{asset('images/img.jpg')}}" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
@@ -39,33 +39,33 @@
                         <h3>Users </h3>
                     </div>
                     {{--search bar--}}
-                    <div class="title_right">
-                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                            <form method="post" action="{{route('transaction.search')}}">
-                                {{csrf_field()}}
-                                <div class="input-group">
-                                    <select type="text" class="form-control" placeholder="Search for..." name="month">
-                                        <option style="color:gray" value="null"> Month . . .</option>
-                                        <option value="1">Januari</option>
-                                        <option value="2">Pebruari</option>
-                                        <option value="3">Maret</option>
-                                        <option value="4">April</option>
-                                        <option value="5">Mei</option>
-                                        <option value="6">Juni</option>
-                                        <option value="7">Juli</option>
-                                        <option value="8">Agustus</option>
-                                        <option value="9">September</option>
-                                        <option value="10">Oktober</option>
-                                        <option value="11">November</option>
-                                        <option value="12">Desember</option>
-                                    </select>
-                                    <span class="input-group-btn">
-                                        <button type="submit" class="btn btn-default" type="button">Go!</button>
-                                    </span>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                    {{--<div class="title_right">--}}
+                        {{--<div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">--}}
+                            {{--<form method="post" action="{{route('transaction.search')}}">--}}
+                                {{--{{csrf_field()}}--}}
+                                {{--<div class="input-group">--}}
+                                    {{--<select type="text" class="form-control" placeholder="Search for..." name="month">--}}
+                                        {{--<option style="color:gray" value="null"> Month . . .</option>--}}
+                                        {{--<option value="1">Januari</option>--}}
+                                        {{--<option value="2">Pebruari</option>--}}
+                                        {{--<option value="3">Maret</option>--}}
+                                        {{--<option value="4">April</option>--}}
+                                        {{--<option value="5">Mei</option>--}}
+                                        {{--<option value="6">Juni</option>--}}
+                                        {{--<option value="7">Juli</option>--}}
+                                        {{--<option value="8">Agustus</option>--}}
+                                        {{--<option value="9">September</option>--}}
+                                        {{--<option value="10">Oktober</option>--}}
+                                        {{--<option value="11">November</option>--}}
+                                        {{--<option value="12">Desember</option>--}}
+                                    {{--</select>--}}
+                                    {{--<span class="input-group-btn">--}}
+                                        {{--<button type="submit" class="btn btn-default" type="button">Go!</button>--}}
+                                    {{--</span>--}}
+                                {{--</div>--}}
+                            {{--</form>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
                     {{--search bar--}}
                 </div>
 
